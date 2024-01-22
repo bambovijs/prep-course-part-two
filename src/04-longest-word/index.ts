@@ -11,7 +11,30 @@
  * longestWord("My name is Adam") === "name"
  * longestWord("fun&!! time") === "time"
  */
+function longestWord(sen: string): string {
+  // Regex un sadalit vardos
+  const words = sen.match(/[a-zA-Z]+/g);
 
-function longestWord(sen: string) {}
+  if (!words || words.length === 0) {
+    return "nav neviena varda sen mainigaja";
+  }
+
+  // istatam ka mainigais ir pirmais elements/vards masiva
+  let longestWord = words[0];
+  // tapec saksim iterācijas no elementa[1]
+  for (let i = 1; i < words.length; i++) {
+    //console.log(words[i]);
+    if (longestWord.length < words[i].length) {
+      longestWord = words[i];
+    }
+  }
+
+  return longestWord.toString();
+}
+longestWord("Hello there");
+longestWord("My name is Adam");
+longestWord("fun&!! time");
+// longestWord("");
+// longestWord(" ");
 
 export { longestWord };
