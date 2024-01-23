@@ -12,6 +12,21 @@
  * anagrams('Hi there', 'Bye there') === false
  */
 
-function anagrams(stringA: string, stringB: string) {}
+function anagrams(stringA: string, stringB: string) {
+  const cleanString = (str: string) =>
+    str.toLocaleLowerCase().replace(/[^\w]/g, ""); //regex- izdzes visu kas nav alfabeta burti un cipari
+
+  const cleanA = cleanString(stringA);
+  const cleanB = cleanString(stringB);
+
+  const sortA = cleanA.split("").sort().join("");
+  const sortB = cleanB.split("").sort().join("");
+
+  if (sortA === sortB) {
+    return true;
+  } else {
+    return false;
+  }
+}
 
 export { anagrams };
