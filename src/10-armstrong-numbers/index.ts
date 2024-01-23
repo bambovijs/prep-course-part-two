@@ -11,6 +11,18 @@
  * Write some code to determine whether a number is an Armstrong number.
  */
 
-function validate(n: number) {}
+function validate(n: number) {
+  const numberToString = n.toString();
 
+  const numberArray = Array.from(numberToString);
+  const totalDigits = numberArray.length;
+  let result = 0;
+
+  for (let i = 0; i < numberArray.length; i++) {
+    let temp = parseInt(numberArray[i]);
+    result += temp ** totalDigits; // Using ** for exponentiation
+  }
+
+  return result === n;
+}
 export { validate };
