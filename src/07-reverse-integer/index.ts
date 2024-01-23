@@ -12,6 +12,18 @@
  * reverseInt(-90) === -9
  */
 
-function reverse(int: number) {}
+function reverse(int: number) {
+  //parverst int par string un sadalīt
+  const parsedInt = int.toString().split("");
+  const reversedString = parsedInt.reverse().join("");
+
+  const reversedInt = parseInt(reversedString) * Math.sign(int);
+
+  //   console.log(parsedInt);
+  //   console.log(reversedString);
+  //   console.log(reversedInt);
+
+  return reversedInt;
+}
 
 export { reverse };
