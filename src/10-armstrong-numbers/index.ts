@@ -20,7 +20,8 @@ function validate(n: number) {
 
   for (let i = 0; i < numberArray.length; i++) {
     let temp = parseInt(numberArray[i]);
-    result += temp ** totalDigits; // Using ** for exponentiation
+    result += temp ** totalDigits; // for exponentiation
+    console.log(result);
   }
 
   return result === n;
