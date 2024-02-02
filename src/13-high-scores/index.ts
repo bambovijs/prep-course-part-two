@@ -15,35 +15,43 @@ class HighScores {
   }
 
   get latest() {
-    if (this.scores.length === 0) {
-      console.log("Empty array");
-    }
+    // 1.Variants
+    // if (this.scores.length === 0) {
+    //   console.log("Empty array");
+    // }
 
-    return this.scores.pop();
+    // return this.scores.pop();
+
+    return this.scores[this.scores.length - 1];
   }
 
   get personalBest() {
-    let temp = this.scores[0];
+    // Variats Nr.1
+    // let temp = this.scores[0];
 
-    if (this.scores.length !== 0) {
-      for (let i = 0; i < this.scores.length; i++) {
-        if (temp < this.scores[i]) {
-          temp = this.scores[i];
-        }
-      }
-    } else {
-      throw new Error("Scores array is empty");
-    }
+    // if (this.scores.length !== 0) {
+    //   for (let i = 0; i < this.scores.length; i++) {
+    //     if (temp < this.scores[i]) {
+    //       temp = this.scores[i];
+    //     }
+    //   }
+    // } else {
+    //   throw new Error("Scores array is empty");
+    // }
 
-    return temp;
+    // return temp;
+
+    return Math.max(...this.scores);
   }
 
   get personalTopThree() {
-    let sortedArray = this.scores.slice().sort((a, b) => b - a);
-    let resultArray: number[] = sortedArray.slice(0, 3);
-    console.log(sortedArray);
+    const array = [...this.scores];
+    const resultArray: number[] = array.sort((a, b) => b - a).slice(0, 3);
 
     return resultArray;
+
+    // const result = [...this.scores].sort((a, b) => b - a).slice(0, 3);
+    // return result;
   }
 }
 
